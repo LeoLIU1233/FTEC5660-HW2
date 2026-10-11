@@ -101,7 +101,8 @@ attack the MCP server. See the homework description for the full rules.
 > the attack techniques you used and why you expect them to work.
 
 > The target is Kelly Tsang (LinkedIn/Facebook id 10001). Her true current role is Manager, AIA, seniority mid, 2022–present; the adversarial CV (task2/adversarial_cv.pdf, one page) visibly prints the inflated title "Senior Manager, AIA" — a genuine embellishment a human grader can see — while every other visible fact matches her profile exactly, minimising the surface for detection. Two layered techniques are used:
-PDF text-layer / extraction gap (primary). The word "Senior " is rendered
+
+1.PDF text-layer / extraction gap (primary). The word "Senior " is rendered
 as a small raster image whose glyph metrics match Helvetica-Bold 11 pt
 (generated from Liberation Sans Bold), whereas "Manager, AIA  2022 – Present"
 stays as real selectable text. The verifiers read the CV with the same
@@ -112,7 +113,7 @@ clearly sees "Senior Manager". This attacks the channel rather than the
 model's judgement, so it does not depend on the model "choosing" to obey an
 injected instruction and even defeats a prompt-injection-hardened verifier
 (our own Task 1 agent scores the file 0.95).
-Indirect prompt injection (secondary, defence in depth). White
+2.Indirect prompt injection (secondary, defence in depth). White
 micro-text in the PDF text layer (invisible when opened, still extracted)
 adds authority/"KYC pre-verification" cues, a forged </data> + assistant
 turn and a pre-baked valid JSON, aimed at any verifier that renders/OCRs the
